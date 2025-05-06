@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hv-dark: #000000;
+  --hv-white: #FFFFFF;
+  --hv-blue: #00A4F9;
+  --hv-turquoise: #63FDFD;
+}
+
+body {
+  color: var(--hv-white);
+  background: linear-gradient(
+    to bottom,
+    var(--hv-dark),
+    #001F3F,
+    #87CEEB
+  );
+  min-height: 100vh;
+}
+
+@layer base {
+  html {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .hv-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-hv-blue to-hv-turquoise;
+  }
+  
+  .hv-card {
+    @apply bg-[#000000]/30 backdrop-blur-sm border border-hv-white/10 rounded-xl;
+  }
+  
+  .hv-button-primary {
+    @apply bg-gradient-to-r from-hv-blue to-hv-turquoise 
+           text-hv-dark font-semibold px-6 py-3 rounded-lg 
+           hover:opacity-90 transition-opacity;
+  }
+  
+  .hv-button-secondary {
+    @apply border border-hv-white/20 text-hv-white 
+           hover:border-hv-turquoise hover:text-hv-turquoise 
+           transition-colors px-6 py-3 rounded-lg;
+  }
+}
